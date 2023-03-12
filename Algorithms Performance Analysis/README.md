@@ -28,7 +28,7 @@ The runtime of the algorithm grows linearly with the input size.
 
 The runtime of the algorithm grows logarithmically with the input size.
 
-When we keep dividing the size of input `N` by some value, say `b`. Then the Time Complexity turns out to be `log(N)` to the base `b`
+When we keep dividing or multiplying the size of input `N` by some value, say `b`. Then the Time Complexity turns out to be `log(N)` to the base `b`
 
 > In Big-O complexity analysis, it doesn't actually matter what the logarithm base is. (they are asymptotically the same, i.e. they differ by only a constant factor): `O(log2 N) = O(log10 N) = O(loge N)`
 
@@ -73,5 +73,25 @@ When we call a Logarithmic Time Algorithm inside a loop, it would result into a 
 - O(n^2), O(n^3), O(2^n) and O(n!) - Horrible/Worst (Never use it!!)
 
 ![Big O Complexity Chart](imgs/big-o-running-time-complexity.png)
+
+--------------------------------
+
+# Big O, Big Omega `Ω`, and Big Theta `Θ`Notation
+
+When analyzing the time complexity of an algorithm, we often use three notations: O, Θ, and Ω. These notations describe different aspects of the algorithm's behavior and provide different levels of information about its performance.
+
+### O-notation (worst-case time complexity): 
+
+The O-notation describes an **upper bound** on the growth rate of the algorithm's running time, in terms of the input size. It represents the worst-case time complexity of the algorithm, which is the maximum amount of time the algorithm can take to complete its task. 
+
+### Θ-notation (average-case time complexity)
+
+The Θ-notation describes an average-case bound on the growth rate of the algorithm's running time, in terms of the input size. It represents the average amount of time the algorithm takes to complete its task, over all possible inputs of size n. 
+
+### Ω-notation (best-case time complexity)
+
+The Ω-notation describes a **lower bound** on the growth rate of the algorithm's running time, in terms of the input size. It represents the best-case time complexity of the algorithm, which is the minimum amount of time the algorithm can take to complete its task.
+
+**In summary,** O-notation describes the upper bound, Ω-notation describes the lower bound, and Θ-notation describes the tight bound (both upper and lower bound) on the algorithm's running time. By using these notations, we can get a better understanding of the behavior and performance of an algorithm for different input sizes.
 
 --------------------------------
