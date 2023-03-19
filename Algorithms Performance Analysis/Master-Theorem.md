@@ -4,7 +4,7 @@ The Master Theorem is a mathematical formula that helps to determine the time co
 
 The Master Theorem can be applied to a wide range of recursive algorithms, and it is particularly useful for analyzing divide-and-conquer algorithms.
 
-The Master Theorem applies to the **recurrence equations** that are in the following form:: `T(n) = a T(n/b) + f(n)`
+The Master Theorem applies to the **recurrence equations** that are in the following form: `T(n) = a T(n/b) + f(n)` and  the `T(base) = Θ(1)`
 
 ### Constraints
 
@@ -13,7 +13,6 @@ The following are some constraints of the equation of master’s theorem:
 - `a` represents the **number of subproblems** in the recursion, and it must be greater or equal to one (`a >= 1`).
 - `n/b` is assumed to have the same size for each subproblem, and `b` must be greater than one (`b > 1`) to ensure a proper divide and conquer recurrence analysis.
 - `f(n)` must be an asymptotically positive function, and it is mainly a cost of operations performed other than recursive calls.
-
 
 **Summary :** `a >= 1`,` b > 1`, and `f(n)` asymptotically positive function 
 
