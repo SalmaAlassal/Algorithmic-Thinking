@@ -4,9 +4,6 @@ using namespace std;
 // The function iterates through the array from the second element,
 // comparing each element with the elements before it and inserting
 // it into the correct position in the sorted subarray.
-
-// The time complexity of insertion sort is O(n^2) 
-
 void insertaionSort(int arr[], int n)
 {
     for (int i = 1; i < n; i++) 
@@ -26,13 +23,8 @@ void insertaionSort(int arr[], int n)
 
 int main()
 {
-    int n;
-    cin >> n;
-
-    int arr[n];
-
-    for (int i = 0; i < n; i++) 
-        cin >> arr[i];
+    int n = 5;
+    int arr[n] = {6, 7, 2, 1, 9};
 
     insertaionSort(arr, n);
 
