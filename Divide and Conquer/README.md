@@ -6,6 +6,23 @@ The Divide and Conquer Algorithm is a problem-solving strategy that involves bre
 2. Conquer: Solve each subproblem independently.
 3. Combine: Combine the solutions to the subproblems to form the final solution to the original problem.
 
+
+### Time Complexity
+
+In general, the time complexity of a divide and conquer algorithm can be expressed using the recurrence relation:
+
+```
+T(N) = O(Divide & Combine) + T(Conquer)
+```
+
+E.g, **Binary Search** :
+
+```
+T(N) = O(Divide & Combine) + T(Conquer)
+T(N) = Θ(1) + 1 T(N/2)
+Master Case#2: Θ(log(N))
+```
+
 ### Examples
 
 The Divide and Conquer Algorithm can be used to solve a wide range of problems, including:
