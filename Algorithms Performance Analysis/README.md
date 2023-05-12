@@ -66,11 +66,13 @@ When we call a Logarithmic Time Algorithm inside a loop, it would result into a 
 
 ### Big O Complexity Chart
 
-- O(1) - Excellent/Best
-- O(log n) - Good
-- O(n) - Fair
-- O(n log n) - Bad
-- O(n^2), O(n^3), O(2^n) and O(n!) - Horrible/Worst (Never use it!!)
+- `O(1)` - Excellent/Best
+- `O(log n)` - Good
+- `O(sqrt(n))` - Good
+- `O(log^2(n))` - Good
+- `O(n)` - Fair
+- `O(n log n)` - Bad
+- `O(n^2)`, `O(n^3)`, `O(2^n)` and `O(n!)` - Horrible/Worst (Never use it!!)
 
 ![Big O Complexity Chart](imgs/big-o-running-time-complexity.png)
 
