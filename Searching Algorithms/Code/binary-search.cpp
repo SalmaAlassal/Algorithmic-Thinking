@@ -1,6 +1,16 @@
 #include <iostream>
 using namespace std;
 
+// Binary Search
+/*
+Divide: check the middle element
+Conquer: Recursively search in ONE half
+Combine: Trivial
+Analysis: T(N) = O(Divide & Combine) + T(Conquer)
+T(N) = 1 T(N/2) + Θ(1)
+Master Case#2: Θ(log(N))
+*/
+
 
 // This fun implements the binary search algorithm, 
 // which is used to search for an element in a sorted array.

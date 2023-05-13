@@ -8,7 +8,7 @@ There are many different sorting algorithms, each with its own advantages and di
 
 # Insertion Sort `O(N^2)`
 
-This algorithm works by iterating through an array and inserting each element in its proper place.
+This algorithm works by iterating through an array and inserting each element in its proper place (repeatedly swap the element with the one to its left if smaller.)
 
 
 ### Idea for sorting: Sorting a Hand of Cards
@@ -29,7 +29,7 @@ The best case for Insertion Sort is when the input array is already sorted. In t
 
 The worst case for Insertion Sort is when the input array is sorted in **reverse order**. 
 
-#### Expected case: O(N^2)
+#### Expected case: `O(N^2)`
 
 
 ### Advantages and Disadvantages of Insertion Sort
@@ -63,7 +63,7 @@ The best case for selection sort occurs when the input array is already sorted. 
 
 The worst case for selection sort occurs when the input array is sorted in reverse order. In this case, the algorithm will perform `n^2` comparisons and `n` swaps.
 
-#### Expected case: O(N^2)
+#### Expected case: `O(N^2)`
 
 The average case for selection sort occurs when the input array is unsorted or has some degree of randomness. In this case, the algorithm will perform `n^2` comparisons and `n` swaps on average.
 
@@ -212,8 +212,8 @@ Or
     - For example, if we have [5, 10, 15, 20, 25], the median of the three values (5, 15, 25) is 15 = pivot.
   - Median of k sampled elements
   - A random element
-   - Instead of always choosing the first or last element as the pivot, we can select a random element in each step
-   - By selecting a random pivot instead of always choosing the first or last element, you can avoid worst-case scenarios when dealing with a completely sorted list, so the expected time is `O(N Log(N))` for ALL input arrays. 
+    - Instead of always choosing the first or last element as the pivot, we can select a random element in each step
+    - By selecting a random pivot instead of always choosing the first or last element, you can avoid worst-case scenarios when dealing with a completely sorted list, so the expected time is `O(N Log(N))` for ALL input arrays. 
 
 --------------------------------------------------------------------
 
@@ -277,74 +277,88 @@ The worst case for MergeSort is when the input array is in reverse order. In thi
 |Algorithm     |Best case   |Average case|Worst case  |Space Complexity|
 |:-------------|:-----------|:-----------|:-----------|:---------------|
 |Bubble sort   |`O(n) `     |`O(n^2)`    |`O(n^2)`    |`O(1)`          |
-|Selection sort|`O(n^2)`    |`O(n^2)`    |`O(n^2)`    |`O(1)`          |
 |Insertion sort|`O(n) `     |`O(n^2)`    |`O(n^2)`    |`O(1)`          |
+|Selection sort|`O(n^2)`    |`O(n^2)`    |`O(n^2)`    |`O(1)`          |
 |Quick sort    |`O(n log n)`|`O(n log n)`|`O(n2)`     |`O(1)`          |
 |Merge sort    |`O(n log n)`|`O(n log n)`|`O(n log n)`|`O(n)`          |
 
 
 |Sorting Algorithm|Best Use Cases|
-|Selection Sort	  |Small arrays or when memory is a concern|
+|-----------------|--------------|
+|Selection Sort	  |Small arrays or when memory is a concern (it makes the minimum possible number of swaps during sorting)|
 |Insertion Sort	  |Small arrays or when the input is almost sorted|
 |Bubble Sort	    |Small arrays or when the input is almost sorted|
-|Merge Sort	      |Large arrays|
-|Quick Sort	      ||Large arrays or when an in-place sort is needed|
-
-
-### Selection Sort
-
-- When the list is small. As the time complexity of the selection sort is O(N2) which makes it inefficient for a large list.
-
-- When memory space is limited because it makes the minimum possible number of swaps during sorting.
-
-### Insertion Sort
-
-- If the data is nearly sorted or when the list is small as it has a complexity of O(N^2) and if the list is sorted a minimum number of elements will slide over to insert the element at its correct location.
-
-- This algorithm is stable and it has fast running case when the list is nearly sorted.
-- The usage of memory is a constraint as it has space complexity of O(1).
-
-### Bubble Sort
-
-- It works well with large datasets where the items are almost sorted because it takes only one iteration to detect whether the list is sorted or not. But if the list is unsorted to a large extend then this algorithm holds good for small datasets or lists.
-
-- This algorithm is fastest on an extremely small or nearly sorted set of data.
-
-
-### Merge Sort
-
-- It is a stable sorting algorithm and it is used when the data is large and the memory space is not a constraint.
-
-
-### Quick Sort
-
-- Quick sort is the fastest, but it is not always O(N*log N), as there are worst cases where it becomes O(N2).
-
-- Quicksort is probably more effective for datasets that fit in memory. For larger data sets it proves to be inefficient so algorithms like merge sort are preferred in that case.
-
-- Quick Sort is an in-place sort (i.e. it doesn’t require any extra storage) so it is appropriate to use it for arrays.
-
-
-------
-|||
-|--|--|
-Selection sort | Easy idea (Bruteforce)  | Min number of swaps (O(N) swaps) | O(n2) in ALL cases|
-Bubble sort    | Easy idea (Bruteforce)  |                                  |O(n) sorted case <br> O(n2) in other cases|
-
-Insertion sort:
-Easy to code
-Fast on small inputs (less than ~50 elements)
-Fast on nearly-sorted inputs
-O(n) sorted case
-O(n2) worst case
-O(n2) average case
-O(n2) reverse-sorted case
-
-
+|Merge Sort	      |Large arrays and the memory space is not a constraint|
+|Quick Sort	      |Large arrays or when an in-place sort is needed (effective for datasets that **fit** in memory)|
 
 
 ------------------------------------
 
 These are just a few examples of the many different sorting algorithms that exist. Choosing the right sorting algorithm for a particular task depends on factors such as the size of the data set, the distribution of values, and the desired performance characteristics.
 
+---------------------------------------------
+---------------------------------------------
+
+# Select Suitable Sort
+
+### 1. Sort a file of huge records with tiny keys
+
+- Application: 
+  - Reorganize your MP-3 files)
+
+**Since huge records --> Need to minimize # of swaps**
+
+- **Insertion sort or bubble sort?**
+  - NO, too many exchanges
+- **Selection sort?**
+  - YES, it takes linear time for exchanges 
+- **Quick/Merge sort?**
+  - Probably not: selection sort simpler, does less swaps
+
+### 2. Sort a huge randomly-ordered file of small records
+
+- Application: 
+  - Process transaction record for a phone company)
+
+**Since huge # of small record --> Need to minimize complexity**
+
+- **Selection sort?**
+  - NO, always takes quadratic time
+- **Bubble sort?**
+  - NO, quadratic time for randomly-ordered keys
+- **Insertion sort?**
+  - NO, quadratic time for randomly-ordered keys
+- **Mergesort?**
+  - YES, it is designed for this problem (specially for small RAM: can be easily parallelized and work on each part separately – need not to load the entire data in RAM)
+- **Quicksort?**
+  - YES, if large RAM
+
+
+### 3. Sort a file that is already almost in order
+
+- Applications:
+  - Re-sort a huge database after a few changes
+  - Double-check that someone else sorted a file
+
+- **Selection sort?**
+  - NO, always takes quadratic time
+- **Bubble sort?**
+  - NO, bad for some definitions of “almost in order”
+  - Ex: B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+- **Insertion sort?**
+  - YES, takes linear time for most definitions of “almost in order”
+- **Quick/Merge sort?**
+  - Probably not: insertion sort simpler and faster
+
+
+### 4. Sort an array of 1 million floating-point numbers?
+
+**Merge sort or quick sort** would be the best choices for sorting large arrays, as they both have an average time complexity of O(N*logN). In practice, quick sort is often faster than merge sort due to its cache-friendliness, but care must be taken to avoid the worst-case time complexity of O(N^2) by choosing good pivot values.
+
+
+### 5. You are running a library catalog. You know that the books in your collection are almost in sorted ascending order by title, with the exception of one book which is in the wrong place. You want the catalog to be completely sorted in ascending order.
+
+**Solution:**
+
+Since it’s almost sorted except 1 book, the INSERTION sort is the most suitable one as it’ll takes Θ(N)  for checking all elements and a max of O(N) to place the 1 book into its correct place.
 
